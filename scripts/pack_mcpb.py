@@ -19,7 +19,11 @@ with tempfile.TemporaryDirectory(prefix="kilobat-mcpb-") as temp:
     binary = pathlib.Path(temp) / "kilobat"
     subprocess.run(["lipo", "-create", str(ROOT / "server/darwin-x86_64/kilobat"),
                     str(ROOT / "server/darwin-arm64/kilobat"), "-output", str(binary)], check=True)
-    assert hashlib.sha256(binary.read_bytes()).hexdigest() == release["binarySHA256"], "Universal CLI must match the upstream release exactly"
+    # lipo may change universal-file padding, while the signed slices must be exact.
+    for arch, digest in release["binarySlices"].items():
+        thin = pathlib.Path(temp) / arch
+        subprocess.run(["lipo", str(binary), "-thin", arch, "-output", str(thin)], check=True)
+        assert hashlib.sha256(thin.read_bytes()).hexdigest() == digest, arch
     subprocess.run(["codesign", "--verify", "--strict", str(binary)], check=True)
     files = {"server/kilobat": binary.read_bytes(), "manifest.json": (ROOT / "mcpb-manifest.json").read_bytes(),
              "icon.png": (ROOT / "assets/icon.png").read_bytes(), "LICENSE.txt": (ROOT / "LICENSE").read_bytes(),
