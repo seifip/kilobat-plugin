@@ -1,6 +1,6 @@
 {
   "name": "kilobat",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Diagnose slow or unreliable internet on a Mac, find apps using bandwidth, save hotspot data, and keep long agent runs awake. Includes 43 MCP tools and 10 skills. macOS 14+; signed Intel/Apple-silicon CLI included.",
   "author": {
     "name": "Kilobat",

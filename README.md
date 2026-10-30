@@ -13,7 +13,7 @@ This package includes **43 local MCP tools, nine networking skills, a setup skil
 /plugin install kilobat@kilobat
 ```
 
-Restart or reconnect the MCP client and run the `kilobat-setup` skill. Claude Desktop users can also download the [signed MCPB bundle](https://github.com/seifip/kilobat-plugin/releases/download/v0.7.1/kilobat-mcp-0.7.1.mcpb) and install it through Settings → Extensions. MCPB installs the tools; this Git plugin additionally includes the skills.
+Restart or reconnect the MCP client and run the `kilobat-setup` skill. Claude Desktop users can also download the [signed MCPB bundle](https://github.com/seifip/kilobat-plugin/releases/download/v0.7.2/kilobat-mcp-0.7.2.mcpb) and install it through Settings → Extensions. MCPB installs the tools; this Git plugin additionally includes the skills.
 
 ### Grok Build
 

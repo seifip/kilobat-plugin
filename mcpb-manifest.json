@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "kilobat",
   "display_name": "Kilobat",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Diagnose slow or flaky internet on a Mac: per-app traffic, Wi-Fi signal, latency, DNS and speed tests.",
   "long_description": "Kilobat measures your Mac's network so Claude can explain why the internet is slow: Wi-Fi signal and noise, router and internet latency, jitter, packet loss, DNS, captive portals, nearby networks, per-app traffic, usage history and a data-capped speed test against Cloudflare. It also keeps the Mac awake for long runs, finds the layer that stops one host, shows each app's bandwidth over time and what it declares it connects to, and answers apps waiting for approval. Diagnostic tools are read-only. Tools that change a profile, a rule, the new-app mode, an approval or DNS are annotated as destructive so Claude asks first. Network history is stored locally; requested MCP results are shared with the connected AI client under its data policies. Blocking requires the Kilobat app with its network filter enabled. macOS 14 or later.",
   "author": {

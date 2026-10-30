@@ -10,7 +10,7 @@ The native executable files are Mach-O binaries, not image or font files. Their 
 
 ## Credential findings
 
-The plugin has no API-key or token configuration, environment credential forwarding, or credential upload. The word “pass” in tool descriptions and skills means supply a tool/CLI argument, such as a data budget; it is not an environment variable named `PASS`. A statement in the skill describing the standalone CLI's saved-Wi-Fi-password feature is a restriction, not an instruction to read credentials. No MCP tool exposes that standalone password command. The manifest and launcher always invoke `mcp`, without a shell-execution tool or arbitrary command arguments.
+The plugin has no API-key or token configuration, environment credential forwarding, or credential upload. The word “pass” in tool descriptions and skills means supply a tool/CLI argument, such as a data budget; it is not an environment variable named `PASS`. The plugin skills do not request the standalone CLI's saved-Wi-Fi-password feature. No MCP tool exposes that standalone password command. The manifest and launcher always invoke `mcp`, without a shell-execution tool or arbitrary command arguments.
 
 ## Data and user control
 
