@@ -73,6 +73,6 @@ python3 scripts/pack_mcpb.py
 
 The binary and corresponding source are pinned in [release.json](release.json) and [SOURCE.md](SOURCE.md). The entire plugin and bundled CLI are GPL-3.0-only; see [LICENSE](LICENSE). Kilobat's GUI app has separate terms.
 
-[Website](https://kilobat.app) · [Documentation](https://kilobat.app/docs.html) · [Support](https://kilobat.app/support.html) · [Privacy](https://kilobat.app/privacy.html) · [Terms](https://kilobat.app/terms.html)
+[Website](https://kilobat.app) · [Documentation](https://kilobat.app/docs.html) · [Support](https://kilobat.app/support.html) · [Plugin privacy](PRIVACY.md) · [Terms](https://kilobat.app/terms.html)
 
 Maintained by Philipp Seyfi, the author of Kilobat, through the `seifip` GitHub account. The Kilobat website and CLI source identify the same publisher. Contact: ping@kilobat.app.

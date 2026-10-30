@@ -38,7 +38,7 @@
         ],
         "websiteURL": "https://kilobat.app",
         "supportURL": "https://kilobat.app/support.html",
-        "privacyPolicyURL": "https://kilobat.app/privacy.html",
+        "privacyPolicyURL": "https://github.com/seifip/kilobat-plugin/blob/main/PRIVACY.md",
         "termsOfServiceURL": "https://kilobat.app/terms.html",
         "defaultPrompt": [
           "Why is my Mac’s internet slow? Check the failing layer.",

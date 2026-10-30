@@ -20,6 +20,7 @@
   },
   "icon": "icon.png",
   "privacy_policies": [
+    "https://github.com/seifip/kilobat-plugin/blob/main/PRIVACY.md",
     "https://kilobat.app/privacy.html"
   ],
   "keywords": [
