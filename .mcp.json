@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "kilobat": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/server/kilobat",
+      "args": [
+        "mcp"
+      ]
+    }
+  }
+}

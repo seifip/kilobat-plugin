@@ -1,0 +1,15 @@
+name: Validate plugin
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify signature, tools, skills and metadata
+        run: python3 scripts/verify.py
+      - name: Package and verify the extracted ZIP
+        run: python3 scripts/pack.py

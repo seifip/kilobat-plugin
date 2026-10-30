@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "kilobat": {
+      "type": "stdio",
+      "command": "${PLUGIN_ROOT}/server/kilobat",
+      "args": [
+        "mcp"
+      ]
+    }
+  }
+}

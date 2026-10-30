@@ -1,0 +1,19 @@
+{
+  "name": "kilobat",
+  "owner": {
+    "name": "Kilobat",
+    "email": "ping@kilobat.app",
+    "url": "https://kilobat.app"
+  },
+  "plugins": [
+    {
+      "name": "kilobat",
+      "source": "./",
+      "description": "Diagnose slow or unreliable internet on a Mac, find apps using bandwidth, save hotspot data, and keep long agent runs awake. Includes 43 MCP tools and 10 skills. macOS 14+; signed universal CLI included.",
+      "category": "productivity"
+    }
+  ],
+  "metadata": {
+    "description": "Official Kilobat plugin: local Mac network diagnostics, bandwidth and agent-run workflows."
+  }
+}

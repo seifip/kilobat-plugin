@@ -1,0 +1,27 @@
+{
+  "name": "kilobat",
+  "version": "0.7.0",
+  "description": "Diagnose slow or unreliable internet on a Mac, find apps using bandwidth, save hotspot data, and keep long agent runs awake. Includes 43 MCP tools and 10 skills. macOS 14+; signed universal CLI included.",
+  "author": {
+    "name": "Kilobat",
+    "email": "ping@kilobat.app",
+    "url": "https://kilobat.app"
+  },
+  "homepage": "https://kilobat.app",
+  "repository": "https://github.com/seifip/kilobat-plugin",
+  "license": "GPL-3.0-only",
+  "keywords": [
+    "kilobat",
+    "kilobat network",
+    "kilobat wifi"
+  ],
+  "skills": "./skills/",
+  "mcpServers": {
+    "kilobat": {
+      "command": "${GROK_PLUGIN_ROOT}/server/kilobat",
+      "args": [
+        "mcp"
+      ]
+    }
+  }
+}

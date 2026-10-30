@@ -1,0 +1,14 @@
+{
+  "pluginVersion": "0.7.0",
+  "cliVersion": "0.7.0",
+  "cliRepository": "seifip/kilobat-cli",
+  "cliSourceCommit": "515322f55f41ff7768ea4ee6a5ddc675fc866468",
+  "mcpbURL": "https://github.com/seifip/kilobat-cli/releases/download/v0.7.0/kilobat-mcp-0.7.0.mcpb",
+  "mcpbSHA256": "0ce381fe5dce9cb6786705478577bad4530965370abdcc5fde165984d13c7060",
+  "binarySHA256": "301f7455e56b5283afbe051ff2c13b3156497168759553f510e9edde8fffb698",
+  "skillsRepository": "seifip/kilobat-skills",
+  "skillsSourceCommit": "ffd3b5931def9bb309868085da4f643ead42a982",
+  "toolCount": 43,
+  "skillCount": 10,
+  "signingTeam": "HAR874R67J"
+}
