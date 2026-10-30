@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import pathlib
+import platform
 import re
 import subprocess
 import sys
@@ -33,7 +34,7 @@ def inspect_server(smoke=False):
                                             (9, "get_usage_report", {"days": True}),
                                             (10, "run_speedtest", {"budget_mb": "10"})]:
             messages.append(rpc("tools/call", identifier, {"name": name, "arguments": arguments}))
-    run = subprocess.run([str(ROOT / "server/kilobat"), "mcp"],
+    run = subprocess.run(["/bin/sh", str(ROOT / "server/start-mcp.sh")],
                          input="".join(json.dumps(m) + "\n" for m in messages),
                          text=True, capture_output=True, check=True, timeout=90)
     replies = {r["id"]: r for r in map(json.loads, run.stdout.splitlines()) if "id" in r}
@@ -66,9 +67,11 @@ def inspect_server(smoke=False):
 
 def verify(smoke=False):
     release = json.loads((ROOT / "release.json").read_text())
-    binary = ROOT / "server/kilobat"
-    assert hashlib.sha256(binary.read_bytes()).hexdigest() == release["binarySHA256"]
-    assert binary.stat().st_mode & 0o111, "Bundled server must stay executable"
+    binaries = {arch: ROOT / "server" / ("darwin-" + arch) / "kilobat" for arch in ("arm64", "x86_64")}
+    for arch, binary in binaries.items():
+        assert hashlib.sha256(binary.read_bytes()).hexdigest() == release["binarySlices"][arch]
+        assert binary.stat().st_mode & 0o111, "Bundled server must stay executable"
+        assert binary.stat().st_size < 5 * 1024 * 1024, "Claude directory per-file size limit"
     skills = list((ROOT / "skills").glob("*/SKILL.md"))
     assert len(skills) == release["skillCount"]
     for skill in skills:
@@ -91,19 +94,19 @@ def verify(smoke=False):
     for asset in ["composerIcon", "logo"]:
         assert (ROOT / portable["interface"][asset]).is_file()
     mcp = json.loads((ROOT / "mcp.json").read_text())["mcpServers"]["kilobat"]
-    assert mcp == {"type": "stdio", "command": "${PLUGIN_ROOT}/server/kilobat", "args": ["mcp"]}
+    assert mcp == {"type": "stdio", "command": "/bin/sh", "args": ["${PLUGIN_ROOT}/server/start-mcp.sh"]}
     for path in ROOT.rglob("*"):
         if path.is_symlink():
             raise AssertionError("Package must not contain symbolic links: " + str(path))
     if sys.platform == "darwin":
-        subprocess.run(["codesign", "--verify", "--strict", str(binary)], check=True)
-        identity = subprocess.run(["codesign", "-dv", "--verbose=2", str(binary)], capture_output=True, text=True, check=True).stderr
-        assert "TeamIdentifier=" + release["signingTeam"] in identity
-        assert "arm64" in subprocess.check_output(["lipo", "-archs", str(binary)], text=True)
-        assert "x86_64" in subprocess.check_output(["lipo", "-archs", str(binary)], text=True)
+        for arch, binary in binaries.items():
+            subprocess.run(["codesign", "--verify", "--strict", str(binary)], check=True)
+            identity = subprocess.run(["codesign", "-dv", "--verbose=2", str(binary)], capture_output=True, text=True, check=True).stderr
+            assert "TeamIdentifier=" + release["signingTeam"] in identity
+            assert subprocess.check_output(["lipo", "-archs", str(binary)], text=True).strip() == arch
         tools = inspect_server(smoke)
         assert len(tools) == release["toolCount"]
-        print(f"PASS: {len(tools)} MCP tools, complete annotations, signed universal CLI")
+        print(f"PASS: {len(tools)} MCP tools, complete annotations, signed Intel/Apple-silicon CLI")
     elif smoke:
         raise SystemExit("Live MCP verification requires macOS 14 or newer")
     print(f"PASS: {len(skills)} skills, three manifests, portable MCP config, assets and pinned binary")

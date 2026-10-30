@@ -32,7 +32,7 @@ For a problem none of these skills covers, or a macOS quirk, `https://kilobat.ap
 
 1. Kilobat runs on macOS 14 or later only.
 2. Prefer the MCP tools when they are connected (`diagnose_network`, `get_status`, …). They return the same JSON as the CLI.
-3. The plugin bundles CLI 0.7.0 at `server/kilobat`; prefer the connected MCP tools. If a standalone CLI is also needed, check `command -v kilobat` and ask before installing it with `brew install seifip/kilobat/kilobat`. The plugin does not require Homebrew.
+3. The plugin bundles CLI 0.7.0 at `server/start-mcp.sh`; prefer the connected MCP tools. If a standalone CLI is also needed, check `command -v kilobat` and ask before installing it with `brew install seifip/kilobat/kilobat`. The plugin does not require Homebrew.
 4. To connect the MCP server, add `kilobat mcp` as a stdio server, for example `claude mcp add kilobat -- kilobat mcp`.
 5. `kilobat doctor` reports whether the Kilobat app is running, whether its network filter is on, and whether Kilobat Pro is active.
 6. This plugin bundles CLI 0.7.0 and its skills require CLI 0.5 or later (`kilobat --version`); `awake`, `sessions`, `why` and `conditions` need 0.4, and `bandwidth`, `access-policy`, `approvals`, `approve`, `deny`, `block-host` and `unblock-host` need 0.5. If a command is unknown, the CLI is older: suggest `brew upgrade kilobat`, and use `kilobat --help` to find the older equivalent.

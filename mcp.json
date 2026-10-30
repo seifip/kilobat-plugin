@@ -3,9 +3,9 @@
   "mcpServers": {
     "kilobat": {
       "type": "stdio",
-      "command": "${PLUGIN_ROOT}/server/kilobat",
+      "command": "/bin/sh",
       "args": [
-        "mcp"
+        "${PLUGIN_ROOT}/server/start-mcp.sh"
       ]
     }
   }

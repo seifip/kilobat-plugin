@@ -16,7 +16,7 @@ output = ROOT / "dist"
 output.mkdir(exist_ok=True)
 archive = output / f"kilobat-plugin-{version}.zip"
 names = ["plugin.json", "mcp.json", ".mcp.json", ".claude-plugin", ".grok-plugin", "skills", "assets", "server",
-         "README.md", "LICENSE", "SOURCE.md", "PRIVACY.md", "SECURITY.md", "release.json", "review", "scripts"]
+         "README.md", "LICENSE", "SOURCE.md", "PRIVACY.md", "SECURITY.md", "release.json", "mcpb-manifest.json", "review", "scripts"]
 files = sorted(p for name in names for p in ([ROOT / name] if (ROOT / name).is_file() else (ROOT / name).rglob("*"))
                if p.is_file() and "__pycache__" not in p.parts)
 with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as z:
@@ -24,7 +24,7 @@ with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as z:
         entry = zipfile.ZipInfo(path.relative_to(ROOT).as_posix(), date_time=(2020, 1, 1, 0, 0, 0))
         entry.create_system = 3
         entry.compress_type = zipfile.ZIP_DEFLATED
-        entry.external_attr = (stat.S_IFREG | (0o755 if path == ROOT / "server/kilobat" else 0o644)) << 16
+        entry.external_attr = (stat.S_IFREG | (0o755 if path.name == "kilobat" or path.suffix == ".sh" else 0o644)) << 16
         z.writestr(entry, path.read_bytes())
 digest = hashlib.sha256(archive.read_bytes()).hexdigest()
 (output / "SHA256SUMS").write_text(f"{digest}  {archive.name}\n")

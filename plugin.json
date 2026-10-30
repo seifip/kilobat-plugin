@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "kilobat",
-  "version": "0.7.0",
-  "description": "Diagnose slow or unreliable internet on a Mac, find apps using bandwidth, save hotspot data, and keep long agent runs awake. Includes 43 MCP tools and 10 skills. macOS 14+; signed universal CLI included.",
+  "version": "0.7.1",
+  "description": "Diagnose slow or unreliable internet on a Mac, find apps using bandwidth, save hotspot data, and keep long agent runs awake. Includes 43 MCP tools and 10 skills. macOS 14+; signed Intel/Apple-silicon CLI included.",
   "author": {
     "name": "Kilobat",
     "email": "ping@kilobat.app",
@@ -26,7 +26,7 @@
       "interface": {
         "displayName": "Kilobat",
         "shortDescription": "Diagnose your Mac’s network and bandwidth",
-        "longDescription": "Find why your Mac’s internet is slow or unreliable with measured Wi-Fi signal, latency, jitter, packet loss, DNS, captive portals, per-app bandwidth and data usage. Diagnose a failing site or API, prepare for a video call, protect a hotspot data budget, and keep long agent runs awake. Includes a signed universal macOS CLI and focused workflows. Firewall enforcement and saved history require the Kilobat app. Changes to DNS, app rules or access settings require your confirmation.",
+        "longDescription": "Find why your Mac’s internet is slow or unreliable with measured Wi-Fi signal, latency, jitter, packet loss, DNS, captive portals, per-app bandwidth and data usage. Diagnose a failing site or API, prepare for a video call, protect a hotspot data budget, and keep long agent runs awake. Includes a signed macOS CLI for Intel and Apple silicon and focused workflows. Firewall enforcement and saved history require the Kilobat app. Changes to DNS, app rules or access settings require your confirmation.",
         "developerName": "Kilobat",
         "category": "Productivity",
         "capabilities": [
@@ -109,7 +109,7 @@
         "commerce_description": "This plugin does not process payments. The bundled GPL CLI and diagnostics are free. Firewall enforcement requires the separately sold Kilobat Pro app."
       },
       "publication": {
-        "release_notes": "Initial self-contained desktop plugin: 43 local MCP tools, nine networking skills, a setup skill, and the signed universal Kilobat CLI 0.7.0. No runtime downloads, lifecycle hooks, API keys or account sign-in."
+        "release_notes": "Initial directory submission: 43 local MCP tools, 10 skills, signed Intel/Apple-silicon CLI 0.7.0 and a local architecture-selecting launcher. No runtime downloads, lifecycle hooks, credentials or Homebrew dependency."
       }
     }
   }

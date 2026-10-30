@@ -1,7 +1,7 @@
 {
   "name": "kilobat",
-  "version": "0.7.0",
-  "description": "Diagnose slow or unreliable internet on a Mac, find apps using bandwidth, save hotspot data, and keep long agent runs awake. Includes 43 MCP tools and 10 skills. macOS 14+; signed universal CLI included.",
+  "version": "0.7.1",
+  "description": "Diagnose slow or unreliable internet on a Mac, find apps using bandwidth, save hotspot data, and keep long agent runs awake. Includes 43 MCP tools and 10 skills. macOS 14+; signed Intel/Apple-silicon CLI included.",
   "author": {
     "name": "Kilobat",
     "email": "ping@kilobat.app",
@@ -18,9 +18,9 @@
   "skills": "./skills/",
   "mcpServers": {
     "kilobat": {
-      "command": "${GROK_PLUGIN_ROOT}/server/kilobat",
+      "command": "/bin/sh",
       "args": [
-        "mcp"
+        "${GROK_PLUGIN_ROOT}/server/start-mcp.sh"
       ]
     }
   }

@@ -1,9 +1,9 @@
 {
   "mcpServers": {
     "kilobat": {
-      "command": "${CLAUDE_PLUGIN_ROOT}/server/kilobat",
+      "command": "/bin/sh",
       "args": [
-        "mcp"
+        "${CLAUDE_PLUGIN_ROOT}/server/start-mcp.sh"
       ]
     }
   }

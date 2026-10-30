@@ -1,5 +1,5 @@
 {
-  "pluginVersion": "0.7.0",
+  "pluginVersion": "0.7.1",
   "cliVersion": "0.7.0",
   "cliRepository": "seifip/kilobat-cli",
   "cliSourceCommit": "515322f55f41ff7768ea4ee6a5ddc675fc866468",
@@ -10,5 +10,9 @@
   "skillsSourceCommit": "ffd3b5931def9bb309868085da4f643ead42a982",
   "toolCount": 43,
   "skillCount": 10,
-  "signingTeam": "HAR874R67J"
+  "signingTeam": "HAR874R67J",
+  "binarySlices": {
+    "arm64": "cdaa9841ca17b0c29adbe9032e54b4494a00f491de6079ee7aed58bc240eaac5",
+    "x86_64": "b33c6135f615901bc965ca566553e5360e5edd5604ce8d0f9be09e61832fd8b6"
+  }
 }

@@ -2,7 +2,7 @@
 
 Diagnose slow or unreliable internet on a Mac with measured Wi-Fi signal, router and internet latency, jitter, packet loss, DNS, captive portals, per-app bandwidth, and data usage. Find why one site or API fails, protect a hotspot data budget, prepare for a video call, and keep a long agent run awake.
 
-This package includes **43 local MCP tools, nine networking skills, a setup skill, and the signed universal Kilobat CLI 0.7.0**. It runs on macOS 14 or later, on Intel and Apple silicon. No account, API key, Homebrew installation, hosted relay, or external runtime is required. It measures the Mac where the server runs; a cloud or Linux agent cannot use it to measure a different Mac.
+This package includes **43 local MCP tools, nine networking skills, a setup skill, and the signed Kilobat CLI for Intel and Apple silicon 0.7.0**. It runs on macOS 14 or later, on Intel and Apple silicon. No account, API key, Homebrew installation, hosted relay, or external runtime is required. It measures the Mac where the server runs; a cloud or Linux agent cannot use it to measure a different Mac.
 
 ## Install
 
@@ -13,7 +13,7 @@ This package includes **43 local MCP tools, nine networking skills, a setup skil
 /plugin install kilobat@kilobat
 ```
 
-Restart or reconnect the MCP client and run the `kilobat-setup` skill. Claude Desktop users can also download the [signed MCPB bundle](https://github.com/seifip/kilobat-cli/releases/download/v0.7.0/kilobat-mcp-0.7.0.mcpb) and install it through Settings → Extensions. MCPB installs the tools; this Git plugin additionally includes the skills.
+Restart or reconnect the MCP client and run the `kilobat-setup` skill. Claude Desktop users can also download the [signed MCPB bundle](https://github.com/seifip/kilobat-plugin/releases/download/v0.7.1/kilobat-mcp-0.7.1.mcpb) and install it through Settings → Extensions. MCPB installs the tools; this Git plugin additionally includes the skills.
 
 ### Grok Build
 
@@ -66,6 +66,7 @@ python3 scripts/verify.py --smoke
 claude plugin validate --strict .
 grok plugin validate .
 python3 scripts/pack.py
+python3 scripts/pack_mcpb.py
 ```
 
 `--smoke` initializes the real bundled MCP server, inspects every tool annotation, runs five read-only workflows, and checks three invalid requests. It does not run a speed test, alter settings, or hold sleep assertions. Build artifacts are written to `dist/`. Test cases for directory reviewers are in [review/test-cases.json](review/test-cases.json).
